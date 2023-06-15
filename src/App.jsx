@@ -1,9 +1,9 @@
-
-
 function App() {
   return (
     <>
-      <section>jobshare!</section>
+      <section>
+        <h1>jobshare!</h1>
+      </section>
     </>
   );
 }
