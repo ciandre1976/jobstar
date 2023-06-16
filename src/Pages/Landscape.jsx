@@ -1,5 +1,7 @@
-import logo from "../assets/images/logo.svg";
+import { Link } from "react-router-dom";
+
 import main from "../assets/images/main.svg";
+import { Logo } from "../comps";
 
 import styled from "styled-components";
 
@@ -45,7 +47,7 @@ export default function Landscape() {
   return (
     <Wrapper>
       <nav>
-        <img src={logo} alt="jobstar logo" className="logo" />
+        <Logo />
       </nav>
       <div className="container page">
         <div className="info">
@@ -58,7 +60,9 @@ export default function Landscape() {
             voluptatum, placeat corporis dicta nesciunt ut nemo, accusamus
             mollitia obcaecati, labore magni veniam vero. Voluptate?
           </p>
-          <button className="btn btn-hero">login/register</button>
+          <Link to="/register" className="btn btn-hero">
+            login/register
+          </Link>
         </div>
         <img src={main} alt="job hunt" className="img main-img" />
       </div>
