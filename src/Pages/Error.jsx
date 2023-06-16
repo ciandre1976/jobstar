@@ -8,9 +8,9 @@ export default function Error() {
     <Wrapper className="full-page">
       <div>
         <img src={errorImg} alt="error image" />
-        <h3>Error</h3>
+        <h3>Ohh! Page not found!</h3>
         <p>Error in this page</p>
-        <Link to="/">Back ro home</Link>
+        <Link to="/">Back home</Link>
       </div>
     </Wrapper>
   );
