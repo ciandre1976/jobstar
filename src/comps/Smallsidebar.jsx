@@ -1,5 +1,9 @@
-
+import Wrapper from "./../assets/wrappers/SmallSidebar";
 
 export default function Smallsidebar() {
-  return <div>Smallsidebar</div>;
+  return (
+    <Wrapper>
+      <h2>SMALLSIDEBAR</h2>
+    </Wrapper>
+  );
 }
