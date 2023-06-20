@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 import { Logo } from "../comps";
 import Wrapper from "../assets/wrappers/RegisterPage";
@@ -18,6 +19,7 @@ export default function Register() {
   const [values, setValues] = useState(initialState);
   const { user, isLoading } = useSelector((store) => store.user);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const name = e.target.name;
@@ -42,6 +44,15 @@ export default function Register() {
   const toggleMember = () => {
     setValues({ ...values, isMember: !values.isMember });
   };
+  console.log("user:", user);
+
+  useEffect(() => {
+    setTimeout(() => {
+      if (user) {
+        navigate("/");
+      }
+    }, 3000);
+  }, [user]);
 
   return (
     <Wrapper className="full-page">
