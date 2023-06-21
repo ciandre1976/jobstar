@@ -1,4 +1,3 @@
-
 export default function AddJob() {
-  return <div>AddJob</div>;
+  return <h1>AddJob</h1>;
 }
