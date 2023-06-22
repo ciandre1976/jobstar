@@ -15,6 +15,23 @@ const initialState = {
   user: getUserFromLocalStorage(),
 };
 
+export const updateUser = createAsyncThunk(
+  "user/updateUser",
+  async (user, thunkAPI) => {
+    try {
+      const resp = await customFetch.patch("/auth/updateUser", user, {
+        headers: {
+          authorization: `Bearer ${thunkAPI.getState().user.user.token}`,
+        },
+      });
+      return resp.data;
+    } catch (error) {
+      console.log(error.response);
+      return thunkAPI.rejectWithValue(error.response.data.msg);
+    }
+  }
+);
+
 export const registerUser = createAsyncThunk(
   "user/registerUser",
   async (user, thunkAPI) => {
@@ -53,6 +70,21 @@ const userSlice = createSlice({
     },
   },
   extraReducers: {
+    [updateUser.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [updateUser.fulfilled]: (state, { payload }) => {
+      const { user } = payload;
+      state.isLoading = false;
+      state.user = user;
+
+      AddUserToLocalStorage(user);
+      toast.success("User Updated");
+    },
+    [updateUser.rejected]: (state, { payload }) => {
+      state.isLoading = false;
+      toast.error(payload);
+    },
     [registerUser.pending]: (state) => {
       state.isLoading = true;
     },
@@ -84,4 +116,4 @@ const userSlice = createSlice({
   },
 });
 export default userSlice.reducer;
-export const { toggleSidebar,logoutUser } = userSlice.actions;
+export const { toggleSidebar, logoutUser } = userSlice.actions;
