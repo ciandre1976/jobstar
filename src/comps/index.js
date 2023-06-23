@@ -7,6 +7,7 @@ import FormRowSelect from "./FormRowSelect";
 import Job from "./Job";
 import SearchContainer from "./SearchContainer";
 import JobContainer from "./jobContainer";
+import Loading from "./Loading";
 
 export {
   Logo,
@@ -18,4 +19,5 @@ export {
   Job,
   SearchContainer,
   JobContainer,
+  Loading,
 };
