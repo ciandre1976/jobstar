@@ -8,6 +8,7 @@ import Job from "./Job";
 import SearchContainer from "./SearchContainer";
 import JobContainer from "./jobContainer";
 import Loading from "./Loading";
+import JobInfo from "./JobInfo";
 
 export {
   Logo,
@@ -20,4 +21,5 @@ export {
   SearchContainer,
   JobContainer,
   Loading,
+  JobInfo,
 };
