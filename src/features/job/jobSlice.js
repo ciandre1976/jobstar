@@ -69,7 +69,7 @@ export const editJob = createAsyncThunk(
           authorization: `Bearer ${thunkAPI.getState().user.user.token}`,
         },
       });
-      thunkAPI.dispatch(clearValues());
+      //thunkAPI.dispatch(clearValues());
       return resp.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data.msg);
