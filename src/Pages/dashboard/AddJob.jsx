@@ -10,6 +10,8 @@ import {
 
 import FormRow from "../../comps/formRow";
 
+import { editJob } from "../../features/job/jobSlice";
+
 export default function AddJob() {
   const {
     isLoading,
@@ -33,6 +35,23 @@ export default function AddJob() {
       toast.error("Please Fill Out All Fields");
       return;
     }
+
+    if (isEditing) {
+      dispatch(
+        editJob({
+          jobId: editJobId,
+          job: {
+            position,
+            company,
+            jobLocation,
+            jobType,
+            status,
+          },
+        })
+      );
+      return;
+    }
+
     dispatch(createJob({ position, company, jobLocation, jobType, status }));
   };
 
